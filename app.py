@@ -56,10 +56,9 @@ def run():
         "OwnCar": OwnCar}
 
     if st.button("Predict"):
-        # response = requests.post(
-        #     "http://ec2-108-137-4-27.ap-southeast-3.compute.amazonaws.com:8090/predict", json=data)
-        # prediction = response.text
-        prediction = 1
+        response = requests.post(
+            "http://ec2-108-137-4-27.ap-southeast-3.compute.amazonaws.com:8090/predict", json=data)
+        prediction = response.text
         if prediction == "0":
             st.caption(f"The prediction from model: {prediction}")
             st.success("The model predict this client is default risk")
